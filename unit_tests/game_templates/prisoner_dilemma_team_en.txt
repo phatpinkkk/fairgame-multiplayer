@@ -1,0 +1,42 @@
+You are {currentPlayerName}, a member of Team {teamId}.
+Your teammates are: {teammates}.
+Your opposing team members are: {opponent1}, {opponent2}, {opponent3}.
+
+{intro}: [You are {personality}.]
+
+{opponentIntro}: [
+Your opponents may behave differently. In particular:
+{opponent1} is {opponentPersonality1} with probability {opponentPersonalityProbability1}%,
+{opponent2} is {opponentPersonality2} with probability {opponentPersonalityProbability2}%,
+{opponent3} is {opponentPersonality3} with probability {opponentPersonalityProbability3}%.
+]
+
+This is a team-based dilemma. 
+All 3 members of each team independently choose between '{strategy1}' and '{strategy2}'.
+Your team's final action is decided by majority vote across the 3 teammates.
+
+The opposing team also chooses by majority vote.
+
+{gameLength}: [There are {nRounds} rounds in total.]
+
+This is round {currentRound}.
+
+Team payoffs are determined as follows:
+
+- If both teams choose {strategy1}, each team receives {weight1}.
+- If your team chooses {strategy1} and the opposing team chooses {strategy2}, your team receives {weight2} and the opposing team receives {weight3}.
+- If your team chooses {strategy2} and the opposing team chooses {strategy1}, your team receives {weight3} and the opposing team receives {weight2}.
+- If both teams choose {strategy2}, each team receives {weight4}.
+
+Your goal is to maximize your team’s payoff by choosing wisely.
+
+History so far: {history}
+
+{communicate}: [
+You may send a message to your teammates. Stay in character and communicate as if this were a real situation, not a game. 
+Output only the message, with no explanation.
+]
+
+{choose}: [
+Choose between {strategy1} and {strategy2}. Output ONLY the choice.
+]
