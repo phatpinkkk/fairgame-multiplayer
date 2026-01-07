@@ -1,47 +1,88 @@
-# FAIRGAME: a Framework for AI Agents Bias Recognition using Game Theory
+# FAIRGAME Multiplayer Extension
 
-FAIRGAME is a framework designed to simulate a diverse range of scenarios, from classic Game Theory models to real-world use cases, while identifying biases related to language, cultural traits, or gaming strategies. It enables comprehensive simulations involving AI agents with varying identities and personalities, quantifying the outcomes of their interactions and aligning them with desired results through game-theoretic principles. This makes FAIRGAME a versatile tool for testing and evaluating chatbot behavior, AI decision-making, and agent interactions in various contexts.
+This repository contains a multiplayer extension of the FAIRGAME framework. The project redesigns the original two-player interaction model to support multi-agent and team-based game-theoretic simulations (e.g., 2v2 and larger groups).
 
-## Code Repository Structure
+This multiplayer extension was designed and developed during a research program hosted by HCMUT in December 2025, in collaboration with Prof. Thế Anh Hàn (Teesside University, UK).
 
-The following tree shows the list of the repository's sections and their main contents:
+This work focuses on extending the core game logic, interaction flow, and evaluation mechanisms while preserving the original framework’s goal of analyzing agent behavior in strategic scenarios.
 
+---
+
+## Project Overview
+
+FAIRGAME is a framework for simulating game-theoretic interactions between AI agents.
+The original implementation primarily focuses on two-player settings.
+
+This extension introduces:
+- Support for **multiple agents per game**
+- **Team-based interactions** (e.g., 2v2)
+- Generalized payoff handling for more than two players
+- Updated game flow and state management for multiplayer scenarios
+
+The goal of this project is to explore how agent behavior, coordination, and outcomes change when moving beyond strictly two-player games.
+
+---
+
+## Key Differences from Original FAIRGAME
+
+Compared to the original FAIRGAME framework, this project includes:
+
+- A redesigned game loop to handle **more than two agents**
+- Extended data structures for **multi-agent history and results**
+- Support for **team-based configurations**
+- Updated validation and processing logic for multiplayer settings
+- Additional test cases covering multi-agent scenarios
+
+---
+
+## Project Structure
+
+```text
+fairgame-multiplayer/
+├── src/                # Core game logic and multiplayer extensions
+├── resources/          # Configuration files and game templates
+├── unit_tests/         # Unit tests (including multiplayer scenarios)
+├── main.py             # Entry point for running simulations
+├── api.py              # Optional API interface for interaction/testing
+├── requirements.txt    # Python dependencies
+├── Dockerfile          # Containerized execution
+└── README.md
 ```
-└── apy.py             # Flask API for local testing and interaction
-└── Dockerfile         # Containerization setup
-└── main.py            # Entry point script to run the core application. It also provides an example of the input
-└── resources/         # Static resources (JSON config files and templates)
-└── results/           # Stores output results, logs, or evaluation metrics
-└── src/               # Core source code: models, logic, and processing pipelines
-└── unit_tests/        # Unit tests to verify the functionality of components
+
+## Getting Started
+### Prerequisites
+```bash
+* Python 3.9+
+* pip
 ```
 
-## Requirements
+### Installation
+```bash
+pip install -r requirements.txt
+```
 
-Your project needs the following keys in the .env file (an example is provided in .env.example):
+### Running a Simulation
+```bash
+python main.py
+```
 
-- API_KEY_OPENAI to properly connect to OpenAI's API and models.
-- API_KEY_MISTRAL to properly connect to Mistral's API and models.
-- API_KEY_ANTHROPIC to properly connect to Anthropic's API and models.
+Configuration files in the resources/ directory define the game type, number of agents, team structure, and interaction rules.
 
-Optionally, to enable saving results to an S3-compatible storage, you can also include:
-- S3_ENDPOINT
-- S3_KEY
-- S3_SECRET
-- BUCKET_NAME
+### Testing
 
-## Governance and Contribution
+Unit tests are provided to verify both original and multiplayer behavior:
+```bash
+pytest unit_tests
+```
 
-The development and community management of this project follows the governance rules described in the [GOVERNANCE.md](GOVERNANCE.md) document.
+---
 
-At SOM Research Lab we are dedicated to creating and maintaining welcoming, inclusive, safe, and harassment-free development spaces. Anyone participating will be subject to and agrees to sign on to our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+## Acknowledgment
 
-This project is developed by the AI Readiness and Assessment (AIRA) group at Luxembourg Institute of Science and Technology (LIST) and part of the AI Sandbox (https://ai-sandbox.list.lu/). 
-We are open to contributions from the community. Any comment is more than welcome! If you are interested in contributing to this project, please read the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+This project is based on the FAIRGAME framework developed by the AI Readiness and Assessment (AIRA) group at the Luxembourg Institute of Science and Technology (LIST).
 
+The original FAIRGAME project focuses on two-player game-theoretic simulations for analyzing bias and agent behavior. This repository is an independent extension that redesigns the interaction model to support multiplayer and team-based scenarios.
 
 ## License
 
-[[License: Apache License Version 2.0]](http://www.apache.org/licenses/)
-
-The source code for the site is licensed under the Apache License Version 2.0, which you can find in the LICENSE file.
+This project is licensed under the Apache License 2.0, in accordance with the original FAIRGAME framework.
